@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <!-- Aframe -->
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <!-- <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.min.js"></script> -->
+    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script> 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <!-- Physics -->
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/components/sphere-collider.js"></script>
+    <!-- Line -->
+    <script src="https://unpkg.com/aframe-line-component/dist/aframe-line-component.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    
+    <!-- Curve  -->
+   
+    <script src="https://unpkg.com/aframe-curve-component/dist/aframe-curve-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script> 
+    <script src="js/aframe-material.js"></script>
+    <script type="text/javascript">
+      AFRAME.ASSETS_PATH = "./assets";
+    </script>
+
+
+    <script  type = "text/javascript">
+
+
+
+
+      function buttonClk(value) {
+        var btnStartInspect = document.querySelector("#btnStartInspect");
+        var txtShovelAlarm = document.querySelector("#txtShovelAlarm");
+        var arrowImage = document.querySelector("#arrowImage");
+        var btnOK1 = document.querySelector("#btnOK1");
+        var btnNOK1 = document.querySelector("#btnNOK1");
+        var btnOK2 = document.querySelector("#btnOK2");
+        var btnNOK2 = document.querySelector("#btnNOK2");
+        var txtCheckLever = document.querySelector("#txtCheckLever");
+        var txtCheckLinear = document.querySelector("#txtCheckLinear");
+        var txtTurn = document.querySelector("#txtTurn");
+        var switcharrow = document.querySelector("#switch");
+        var btnOK3 = document.querySelector("#btnOK3");
+        var btnOK4 = document.querySelector("#btnOK4");
+        var btnNOK4 = document.querySelector("#btnNOK4");
+        var btnOK5 = document.querySelector("#btnOK5");
+        var btnNOK5 = document.querySelector("#btnNOK5");
+        var txtLift = document.querySelector("#txtLift");
+        var txtPos = document.querySelector("#txtPos");
+        var levelingswitch = document.querySelector("#levelingswitch");
+        var checkpng = document.querySelector("#checkpng");
+
+        if(value == 1)
+        {
+          btnStartInspect.style.display = "none";
+          btnOK1.style.display = "block";
+          btnNOK1.style.display = "block";
+
+          arrowImage.setAttribute('visible', 'true');
+          txtShovelAlarm.setAttribute('visible', 'true');
+          switcharrow.setAttribute('visible', 'false');
+        }else if(value == 2)
+        {
+          btnStartInspect.style.display = "none";
+          btnOK1.style.display = "none";
+          btnNOK1.style.display = "none";
+          btnOK2.style.display = "block";
+          btnNOK2.style.display = "block";
+
+          arrowImage.setAttribute('visible', 'false');
+          txtShovelAlarm.setAttribute('visible', 'false');
+          txtCheckLever.setAttribute('visible', 'true');
+          switcharrow.setAttribute('visible', 'true');
+
+        }
+        else if (value == 3){
+          btnStartInspect.style.display = "none";
+          btnOK1.style.display = "none";
+          btnNOK1.style.display = "none";
+          txtShovelAlarm.setAttribute('visible', 'false');
+          levelingswitch.setAttribute('visible', 'true');
+          switcharrow.setAttribute('visible', 'false');
+          arrowImage.setAttribute('visible', 'false');
+          txtCheckLinear.setAttribute('visible', 'true');
+
+        } else if (value == 4)
+        {
+          btnStartInspect.style.display = "none";
+          btnOK2.style.display = "none";
+          btnNOK2.style.display = "none";
+          btnOK3.style.display = "block";
+          txtCheckLever.setAttribute('visible', 'false');
+          switcharrow.setAttribute('visible', 'false');
+          txtTurn.setAttribute('visible', 'true');
+          switcharrow.setAttribute('visible', 'true');
+        }
+        else if (value == 5) {
+          btnStartInspect.style.display = "none";
+          btnOK2.style.display = "none";
+          btnNOK2.style.display = "none";
+
+          btnOK4.style.display = "block";
+          btnNOK4.style.display = "block";
+
+          txtCheckLever.setAttribute('visible', 'false');
+          switcharrow.setAttribute('visible', 'true');
+          txtPos.setAttribute('visible', 'true');
+
+        }
+
+
+        else if (value == 6 ) {
+          btnStartInspect.style.display = "none";
+          btnOK3.style.display = "none";
+          btnOK5.style.display = "block";
+          btnNOK5.style.display = "block";
+          txtTurn.setAttribute('visible', 'false');
+          switcharrow.setAttribute('visible', 'true');
+          txtLift.setAttribute('visible', 'true');
+
+        }
+        else if (value == 7) {
+
+
+          btnStartInspect.style.display = "none";
+          btnOK4.style.display = "none";
+          btnNOK4.style.display = "none";
+          btnOK5.style.display = "block";
+          btnNOK5.style.display = "block";
+          switcharrow.setAttribute('visible', 'false');
+          txtPos.setAttribute('visible', 'false');
+
+          switcharrow.setAttribute('visible', 'true');
+          txtLift.setAttribute('visible', 'true');
+
+
+        }
+        else if (value == 8) {
+          btnStartInspect.style.display = "none";
+          btnOK4.style.display = "none";
+          btnNOK4.style.display = "none";
+          txtElectrician.setAttribute('visible', 'true');
+          txtPos.setAttribute('visible', 'false');
+          switcharrow.setAttribute('visible', 'false');
+        }
+        else if (value == 9) {
+
+
+          btnStartInspect.style.display = "none";
+          btnOK5.style.display = "none";
+          btnNOK5.style.display = "none";
+          switcharrow.setAttribute('visible', 'false');
+          txtLift.setAttribute('visible', 'false');
+          checkpng.setAttribute('visible','true');
+
+        }
+        else if (value == 10) {
+
+
+          btnStartInspect.style.display = "none";
+          btnOK5.style.display = "none";
+          btnNOK5.style.display = "none";
+          switcharrow.setAttribute('visible', 'false');
+          txtExcavatorTech.setAttribute('visible', 'true');
+          txtLift.setAttribute('visible', 'false');
+        }
+
+      }
+
+    </script>
+    
+  </head>
+  <body>
+    <script type="text/javascript" src="js/methods.js">
+    </script>
+
+
+
+    <input type="button" id="btnStartInspect" class="button" onclick="buttonClk(1)" value="Start Inspect" >
+    <input type="button" id="btnOK1" class="button" onclick="buttonClk(2)" value="OK1" >
+    <input type="button" id="btnNOK1" class="button" onclick="buttonClk(3)" value="NOK1" >
+    <input type="button" id="btnOK2" class="button" onclick="buttonClk(4)" value="OK2">
+    <input type="button" id="btnNOK2" class="button" onclick="buttonClk(5)" value="NOK2">
+    <input type="button" id="btnOK3" class="button" onclick="buttonClk(6)" value="OK3">
+    <input type="button" id="btnOK4" class="button" onclick="buttonClk(7)" value="OK4">
+    <input type="button" id="btnNOK4" class="button" onclick="buttonClk(8)" value="NOK4">
+    <input type="button" id="btnOK5" class="button" onclick="buttonClk(9)" value="OK5">
+    <input type="button" id="btnNOK5" class="button" onclick="buttonClk(10)" value="NOK5">
+
+
+  
+    <a-scene embedded  arjs="sourceType: webcam;trackingMethod: best; debugUIEnabled:false " cursor="rayOrigin: mouse" raycaster="objects: [data-clickable]" iot >
+          
+          <a-assets>
+            <img id="arrow" src="img/levelingswitch.png">
+            <img id="switcharrow" src="img/switch.png">
+            <img id ="check" src = "img/check.png"></img>
+            <img id ="levelswitch" src = "img/levelingswitch.png"></img>
+          </a-assets>
+         
+          <a-marker preset="custom" type='pattern' url='img/ericsson.patt' > 
+     
+    
+         
+          <a-text id="txtShovelAlarm" value="Check leveling switch lower down to hit the ground" color="white"  position="-3 0 0.5" rotation="-90 0 0" z-offset="0.4" ></a-text>
+          <a-text id="txtCheckLever" value="Check all lever if they are 'N' " color="white" position="-1.5 0 0.5" rotation="-90 0 0" z-offset="0.4"></a-text>
+          <a-text id="txtCheckLinear" value="Check linear actuator lubricants " color="white" position="-4 0 0.5" rotation="-90 0 0" z-offset="0.4"></a-text>
+          <a-text id="txtTurn" value="Turn on power switch to left" color="white" position="-1.5 0 0.5" rotation="-90 0 0" z-offset="0.4"></a-text>
+          <a-text id="txtLift" value="Lift up the switch to up check if excavator works" color="white" position="-1.5 0 0.5" rotation="-90 0 0" z-offset="0.4"></a-text>
+          <a-text id="txtPos" value="Position them all to 'N'" color="white" position="-1.5 0 0.5"
+            rotation="-90 0 0" z-offset="0.4"></a-text>
+          <a-text id="txtElectrician" value="Call Electrician" color="white" position="-1.5 0 0.5" rotation="-90 0 0"
+                  z-offset="0.4"></a-text>
+          <a-text id="txtExcavatorTech" value="Call Excavator Technician" color="white" position="-1.5 0 0.5" rotation="-90 0 0"
+            z-offset="0.4"></a-text>
+
+          <a-image id="arrowImage" src="#arrow" position="-2 0 -0.5" rotation="-90 0 0" z-offset="0.6" scale="2 2 2"></a-image> 
+          <a-image id="switch" src="#switcharrow" position="1.5 0 -0.5" rotation="-90 0 0" z-offset="0.6" scale="2 2 2"></a-image>
+          <a-image id="checkpng" src="#check" position="0 0 0" rotation="-90 0 0" z-offset="0.6" scale="1 1 1"></a-image>
+          <a-image id="levelingswitch" src="#levelswitch" position="-2 0 -0.5" rotation="-90 0 0" z-offset="0.6" scale="2 2 2"></a-image>
+
+          </a-marker> 
+        
+
+            
+
+            <a-entity camera >
+               <a-entity cursor="fuse: true; fuseTimeout: 500"
+              position="0 0 -1"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: black; shader: flat ; opacity:0"> 
+              </a-entity>     
+      </a-entity>
+            
+	 </a-scene>
+
+   
+
+    
+  </body>
+
+
+</html>
